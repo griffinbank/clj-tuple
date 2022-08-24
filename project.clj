@@ -1,4 +1,4 @@
-(defproject clj-tuple "0.2.2"
+(defproject clj-tuple "0.2.3-griffin"
   :description "Efficient small collections."
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
@@ -7,9 +7,6 @@
                                   [collection-check "0.1.5"]]}
              :provided {:dependencies [[org.clojure/clojure "1.7.0-alpha5"]]}}
   :global-vars {*warn-on-reflection* true}
-  :test-selectors {:benchmark :benchmark
-                   :stress :stress
-                   :default #(every? (complement #{:benchmark :stress}) (keys %))}
-  :java-source-paths ["src"]
-  :javac-options ["-target" "1.5" "-source" "1.5"]
-  :jvm-opts ^:replace ["-server" "-Xmx500m" "-XX:NewSize=200m"])
+  :jvm-opts ^:replace ["-server" "-Xmx500m" "-XX:NewSize=200m"]
+  :repositories [["griffin" "s3://griffin-maven-shared-eu-west-2/release"]]
+  :plugins [[s3-wagon-private "1.3.5"]])
